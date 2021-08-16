@@ -1,8 +1,17 @@
+<!--投稿一覧-->
 <h1>Books</h1>
 
+<% @books.each do |book| %>
+ <p>Title</p>
+  <span><%= book.title %></span>
+
+ <p>Body</p>
+  <span><%= book.body %></span>
+
+<% end %>
 
 
-
+<!--新規投稿フォーム-->
 <h2>New book</h2>
 
 <%= form_with model:@book,local:true do |f| %>
