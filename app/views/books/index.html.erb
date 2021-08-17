@@ -35,12 +35,11 @@
 
 <!--バリデーション　エラーメッセージ-->
 <% if @book.errors.any? %>
- <%= @book.errors.count %>errors prohibited this book from being saved:
+ <%= @book.errors.count %> errors prohibited this book from being saved:
 
  <% @book.errors.full_messages.each do |message| %>
   <%= message %>
  <% end %>
-
 <% end %>
 
 
