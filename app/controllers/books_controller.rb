@@ -10,9 +10,15 @@ class BooksController < ApplicationController
   end
 
   def create
-    book = Book.new(book_params)
-    book.save
-    redirect_to book_path(book.id),notice:"Book was successfully created."
+    @book = Book.new(book_params)
+    if @book.save
+      redirect_to book_path(@book.id),notice:"Book was successfully created."
+    else
+      @books = Book.all
+      render :index
+        #'render :index'はindexアクション(@Books = Book.all)を読み込まないので、ここで定義する必要がある＃
+        #index.html.erbを表示するのに @Books=Book.all が必要#
+    end
   end
 
   def edit
